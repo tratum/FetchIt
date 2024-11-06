@@ -1,4 +1,4 @@
-﻿## Option 11 is not working debugging required
+﻿## Option 11 is now working but further troubleshooting is required.
 
 function Center-Text {
     param (
@@ -43,21 +43,21 @@ switch($choice) {
         Write-Output "You have selected Visual Studio Code"
         $vscodepath = "C:\Program Files\Microsoft VS Code\Code.exe"
         if (Test-Path $vscodepath) {
-        Write-Host "Visual Studio Code is already installed with version $((Get-Item $vscodepath).VersionInfo.FileVersion)."
-    }
-        else {
-        Write-Host "Visual Studio Code is not installed. Installing..."
-        $installpath = "$env:TEMP\vscode_installer.exe"
-        Invoke-WebRequest -Uri "https://update.code.visualstudio.com/latest/win32-x64/stable" -OutFile $installpath
-        Start-Process -FilePath $installpath -ArgumentList "/silent", "/mergetask=!runcode" -Wait
-        Remove-Item -Path $installpath
-        if (Test-Path $vscodepath) {
-            Write-Host "Visual Studio Code has been succesfully installed with version $(get-vsCodeVersion)"
-        } 
-        else{
-            Write-Host "Failed to Install Visual Studio Code."    
+            Write-Host "Visual Studio Code is already installed with version $((Get-Item $vscodepath).VersionInfo.FileVersion)."
         }
-    }   
+        else {
+            Write-Host "Visual Studio Code is not installed. Installing..."
+            $installpath = "$env:TEMP\vscode_installer.exe"
+            Invoke-WebRequest -Uri "https://update.code.visualstudio.com/latest/win32-x64/stable" -OutFile $installpath
+            Start-Process -FilePath $installpath -ArgumentList "/silent", "/mergetask=!runcode" -Wait
+            Remove-Item -Path $installpath
+            if (Test-Path $vscodepath) {
+                Write-Host "Visual Studio Code has been succesfully installed with version $(get-vsCodeVersion)"
+            } 
+            else {
+                Write-Host "Failed to Install Visual Studio Code."    
+            }
+        }   
     }
     2 {
         Write-Output "You have selected VLC Media Player"
@@ -227,22 +227,22 @@ switch($choice) {
     }
     11 {
         Write-Output "You have selected Git"
-        $gitPath = "C:\Users\Saksham.Rawat\AppData\Local\Programs\Git\bin\git.exe"
+        $gitPath = "C:\Program Files\Git\bin\git.exe"
         if (Test-Path $gitPath) {
             Write-Host "Git is already installed with version $((Get-Item $gitPath).VersionInfo.FileVersion)."
         } else {
-            Write-Host "Git is not installed. Installing..."
+            Write-Host "Git is not installed. Installing..." 
             $installPath = "$env:TEMP\git_installer.exe"
-            Invoke-WebRequest -Uri "https://github.com/git-for-windows/git/releases/latest/download/Git-64-bit.exe" -OutFile $installPath
-            Start-Process -FilePath $installPath -ArgumentList "/VERYSILENT", "/NORESTART" -Wait
-            Remove-Item -Path $installPath
+            Invoke-WebRequest -Uri "https://github.com/git-for-windows/git/releases/download/v2.47.0.windows.2/Git-2.47.0.2-64-bit.exe" -OutFile $installPath
+            Start-Process -FilePath $installPath -Wait
+            Remove-Item -Path $installPath -Force
             if (Test-Path $gitPath) {
                 Write-Host "Git has been successfully installed with version $((Get-Item $gitPath).VersionInfo.FileVersion)."
             } else {
-                Write-Host "Failed to install Git."
+                Write-Host "Failed to install Git. Please check the installation file or permissions."
             }
         }
-    }
+    }    
     12 {
         Write-Output "You have selected GitHub Desktop"
         $githubDesktopPath = "C:\Users\$env:USERNAME\AppData\Local\GitHubDesktop\app-*/GitHubDesktop.exe"
