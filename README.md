@@ -31,10 +31,9 @@
 ## Requirements
 
 - **Operating System**: Windows
-- **PowerShell**: Version 5.1 or higher
 - **Internet Connection**: Required for downloading applications
 
-## Installation
+<!-- ## Installation
 
 1. Clone the repository:
 
@@ -48,12 +47,15 @@
 3. Run the script in PowerShell as Administrator:
    ```shell
    ./FetchIt.ps1
-   ``` 
+   ```  -->
 
 ## Usage
 - After launching FetchIt, you’ll be presented with a list of applications to choose from.
 - Enter the number corresponding to the application you’d like to download and install.
 - The script will check for an existing installation, install the latest version if not found, and confirm the success of each installation.
+- ```shell
+  powershell -ExecutionPolicy Bypass -Command "Invoke-Expression (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/tratum/FetchIt/main/FetchIt.ps1' -UseBasicParsing).Content"
+  ```  
 
 ## Contributing
 If you have suggestions for new features or optimizations, feel free to create an issue or submit a pull request. Contributions are welcome and appreciated!
