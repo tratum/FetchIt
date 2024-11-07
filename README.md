@@ -51,9 +51,9 @@
    ``` 
 
 ## Usage
-After launching FetchIt, you’ll be presented with a list of applications to choose from.
-Enter the number corresponding to the application you’d like to download and install.
-The script will check for an existing installation, install the latest version if not found, and confirm the success of each installation.
+- After launching FetchIt, you’ll be presented with a list of applications to choose from.
+- Enter the number corresponding to the application you’d like to download and install.
+- The script will check for an existing installation, install the latest version if not found, and confirm the success of each installation.
 
 ## Contributing
 If you have suggestions for new features or optimizations, feel free to create an issue or submit a pull request. Contributions are welcome and appreciated!
